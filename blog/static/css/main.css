@@ -1,0 +1,408 @@
+body{
+    font-family: "Lato", sans-serif;
+    color: #333;
+    line-height: 24px;
+    padding-top: 0;
+    min-height: 100vh;
+}
+a{
+    target: "_blank";
+    color: #d43f3a;
+}
+a:hover{
+    color: #d9534f;
+    text-decoration: none;
+}
+.navbar-default{
+    background-color: rgba(255,255,255,0);
+    border-color: transparent;
+    position: absolute;
+    display: block;
+    width: 100%;
+}
+.navbar-toggle{
+    border-color: #aaa !important;
+}
+.navbar-brand b{
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(51,51,51,0.7);
+}
+.codez-logo:before{
+    background: url("/blog/static/imgs/logo.png");
+    width: 36px;
+    height: 25px;
+    display: block;
+    content: "";
+    float: left;
+    background-size: contain;
+    margin-right: 10px;
+}
+.navbar-nav>.active>a{
+    color: rgba(51,51,51,1);
+    font-weight: 400;
+    background-color: transparent!important;
+    border-bottom: 1px solid rgba(51,51,51,0.3);
+    transition: all 0.2s ease-in;
+}
+.navbar-nav>.active>a:hover{
+    border-bottom: 1px solid rgba(51,51,51,0.7);
+    transition: all 0.2s ease-in;
+}
+.navbar-nav>li>a{
+    border-bottom: 1px solid rgba(51,51,51,0);
+    transition: all 0.2s ease;
+}
+.navbar-nav>li>a{
+    color: rgba(51,51,51,1);
+    font-weight: 300;
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+}
+.navbar-nav>li>a:hover{
+    border-bottom: 1px solid rgba(51,51,51,0.3);
+    transition: all 0.2s ease;
+}
+.black-mask{
+    background: url("/blog/static/imgs/bg_top.jpg") no-repeat;
+    background-size: cover;
+}
+.headerwrap{
+    background: rgba(255,255,255,0.2);
+    min-height: 60vh;
+    max-height: 100%;
+    max-width: 100%;
+}
+.main-logo{
+    text-align: center;
+    padding-top: 120px;
+    text-align: center;
+}
+.main-logo img{
+    height: 100px;
+}
+.main-sentence{
+    font-size: 45px;
+    font-weight: 300;
+    padding-top: 240px;
+    text-align: center;
+    color: rgba(51,51,51,1);
+}
+.second-sentence{
+    font-size: 30px;
+    font-weight: 300;
+    padding-top: 40px;
+    text-align: center;
+    color: rgba(51,51,51,1);
+}
+.introduce-bg{
+    background: url("/blog/static/imgs/bg_coding.jpg") no-repeat;
+    background-size: cover;
+    width: 1170px;
+    height: 500px;
+}
+.bg-white{
+    background-color: #fff;
+}
+.social-list{
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    padding: 40px 0 40px;
+}
+.social-list li{
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+.social-github,.social-mail{
+    display: inline-block;
+    margin: 0 10px;
+}
+.social-github a,.social-mail a{
+    background-color: #333;
+    height: 50px;
+    padding: 12px;
+    display: block;
+    border-radius: 100%;
+}
+.social-mail a{
+    background-color: #4a86e8;
+}
+.social-list li a img{
+    width: 26px;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+footer{
+    padding: 0 0 20px;
+    text-align: center;
+}
+
+.jumbotron{
+    height: 450px;
+    margin-bottom: 0;
+}
+/*.block-dev{*/
+    /*height: 400px;*/
+/*}*/
+.block-dev .title{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.block-dev .title span{
+    display: inline-block;
+    padding: 0 35px;
+    vertical-align: baseline;
+    line-height: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    color: #777;
+}
+.block-dev .title span::before,.block-dev .title span::after{
+    border-top: 1px solid #e2e2e2;
+    content: '';
+    display: block;
+    position: relative;
+    width: 100px;
+}
+.block-dev .title span::before{
+    top: 15px;
+    right: 100%;
+    margin-right: 15px;
+}
+.block-dev .title span::after{
+    bottom: 15px;
+    left: 100%;
+    margin-left: 15px;
+}
+.block-dev .dev-center{
+    clear: both;
+}
+.block-dev .dev-center .col-md-4{
+    text-align: center;
+}
+.skill-logo{
+    height: 200px;
+    padding-top: 10px;
+    display: block;
+    transition: all 0.2s ease;
+}
+.skill-logo:hover{
+    height: 200px;
+    padding-top: 0;
+    transition: all 0.2s ease;
+}
+.apps-logo{
+    height: 100px;
+    padding-top: 10px;
+    display: block;
+    transition: all 0.2s ease;
+}
+.apps-logo:hover{
+    height: 100px;
+    padding-top: 0;
+    transition: all 0.2s ease;
+}
+.skill-logo img,.apps-logo img{
+    height: inherit;
+}
+.skill-name,.apps-name{
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    display: block;
+}
+.block-dev .info-more{
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    color: #777;
+    margin: 30px auto 0;
+}
+.block-footer{
+    background: url("/blog/static/imgs/bg_bottom.jpg");
+    background-size: cover;
+}
+
+/*blog*/
+.blog-content,.about-content,.detail-content{
+    background-color: rgba(255,255,255,0.9);
+    display: block;
+    border-radius: 10px;
+    /*box-shadow: 3px 3px rgba(240,240,240,0.8);*/
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+}
+.blog-left{
+    background-color: #fff;
+    box-shadow: 0 0 2px #aaa inset;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.blog-right{
+    background-color: #fff;
+    box-shadow: 0 0 2px #aaa inset;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.head-size{
+    height: 40px;
+}
+.navigation{
+    text-align: center;
+    padding-top: 20px;
+}
+.pagination{
+    margin: 20px auto;
+}
+.blog{
+    padding: 10px 30px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.blog .title a h2{
+    font-weight: 400;
+    font-size: 26px;
+    color: #333;
+    margin: 20px 0 0;
+}
+.blog .info{
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 10px;
+    color: #777;
+}
+.blog .info .click{
+    float: right;
+}
+.blog .summary{
+    font-weight: 300;
+    font-size: 20px;
+    color: #333;
+    padding-top: 20px;
+}
+.about-content{
+    padding: 30px 20px;
+    min-height: 300px;
+}
+.detail-content{
+    padding: 0 30px 30px;
+    min-height: 300px;
+}
+
+.little-title,.info-profile,.info-about{
+    font-weight: 300;
+    font-size: 18px;
+    color: #777;
+    padding: 20px 0 10px;
+}
+.about-content .col-md-3 div{
+    display: block;
+    vertical-align: middle;
+}
+.info-head{
+    height: 60px;
+}
+.info-name{
+    color: #d9534f;
+    padding-top: 10px;
+    margin: 0;
+    font-weight: 300;
+}
+.info-introduce,.about-item{
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 300;
+}
+.breadcrumb{
+    background-color: transparent;
+    font-size: 16px;
+}
+.breadcrumb .active:before{
+    color: #777;
+}
+.detail-content .blog{
+    padding: 20px 0 0;
+    border: none;
+}
+.blog .page-header{
+    margin: 20px 0;
+}
+.blog .page-header h1{
+    font-size: 32px;
+    font-weight: 400;
+}
+.comment-item{
+    margin: 10px 0 0 20px;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+}
+.comment-item .comment-name{
+    color: #369;
+}
+.comment-item .comment-name::before{
+    background: url("/blog/static/imgs/ic_user.png");
+    margin: 5px;
+    display: block;
+    content: "";
+    width: 14px;
+    height: 14px;
+    float: left;
+}
+.comment-item div .comment-said{
+    color: #777;
+    font-size: 12px;
+}
+.comment-item div .comment-content{
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.commit-comment{
+    margin: 0 0 20px 20px;
+    display: block;
+
+}
+.input-field{
+    padding-top: 20px;
+    font-size: 16px;
+    font-weight: 300;
+}
+.comment-form{
+    padding-left: 20px;
+    overflow: hidden;
+}
+.comment-form .input-field .comment-content-input{
+    width: 100%;
+    height: 100px;
+}
+/*webkit*/
+.comment-form .input-field .comment-content-input::-webkit-input-placeholder{
+    vertical-align: top;
+    top: 0;
+}
+/*ie*/
+.comment-form .input-field .comment-content-input:-ms-input-placeholder{
+    vertical-align: top;
+    top: 0;
+}
+/*firefox*/
+.comment-form .input-field .comment-content-input::-moz-placeholder{
+    vertical-align: top;
+    top: 0;
+}
+.comment-form button{
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #0275D8;
+    padding: 5px 30px;
+    float: right;
+}

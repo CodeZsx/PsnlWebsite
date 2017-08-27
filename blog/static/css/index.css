@@ -1,0 +1,21 @@
+.fl{
+    float: none;
+}
+#header{
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    position: relative;
+    background-color: transparent;
+}
+.top_bg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+.top_bg img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
