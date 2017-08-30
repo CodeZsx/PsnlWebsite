@@ -4,19 +4,21 @@ from __future__ import unicode_literals
 import markdown
 from django.shortcuts import render, get_object_or_404
 
-
 from django.views.generic import ListView, DetailView
 
-from blog.models import Post, Category
+from blog.models import Post, Category, Tag
 
 
 # Create your views here.
-def index(request):
+from comments.forms import CommentForm
+
+
+def blog_index(request):
     post_list = Post.objects.all()
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-def IndexView(ListView):
+class IndexView(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
@@ -51,7 +53,6 @@ def IndexView(ListView):
         context.update(pagination_data)
         return context
 
-
     def pagination_data(self, paginator, page, is_paginated):
         if not is_paginated:
             # 如果没有分页，则无需显示分页导航条，不用任何分页导航条的数据，因此返回一个空的字典
@@ -84,10 +85,10 @@ def IndexView(ListView):
             # 此时只要获取当前页右边的连续页码号，
             # 比如分页页码列表是 [1, 2, 3, 4]，那么获取的就是 right = [2, 3]。
             # 注意这里只获取了当前页码后连续两个页码，你可以更改这个数字以获取更多页码。
-            right = page_range[page_number:page_number+2]
+            right = page_range[page_number:page_number + 2]
             # 如果最右边的页码比最后一页的页码号减去1还要小，
             # 说明最右边的页码号和最后一页的页码号之间还有其他页码，因此需要显示省略号，通过right_has_more来指示
-            if right[-1] < total_pages-1:
+            if right[-1] < total_pages - 1:
                 right_has_more = True
 
             # 如果最右边的页码比最后一页的页码号还要小，说明当前页右边的连续页码号中不包含最后一页的页码
@@ -100,7 +101,7 @@ def IndexView(ListView):
             # 此时只要获取当前页左边的连续页码号。
             # 比如分页页码列表是 [1, 2, 3, 4]，那么获取的就是 left = [2, 3]
             # 这里只获取了当前页码后连续两个页码，你可以更改这个数字以获取更多页码。
-            left = page_range[(page_number-3) if (page_number-3) > 0 else 0:page_number-1]
+            left = page_range[(page_number - 3) if (page_number - 3) > 0 else 0:page_number - 1]
 
             # 如果最左边的页码号比第2页页码号还大，
             # 说明最左边的页码好喝第1页的页码号之间还有其他页码，因此需要显示省略号，通过left_has_more指示
@@ -114,10 +115,10 @@ def IndexView(ListView):
         else:
             # 用户请求的既不是最后一页，也不是第一页，则需要获取当前页左右两边的连续页码号
             # 这里只获取了当前页码前后连续两个页码，你可以更改这个数字以获取更多页码
-            left = page_range[(page_number-3) if (page_number-3)>0 else 0:page_number-1]
-            right = page_range[page_number:page_number+2]
+            left = page_range[(page_number - 3) if (page_number - 3) > 0 else 0:page_number - 1]
+            right = page_range[page_number:page_number + 2]
             # 是否需要显示最后一页和最后一页的省略号
-            if right[-1] < total_pages -1:
+            if right[-1] < total_pages - 1:
                 right_has_more = True
             if right[-1] < total_pages:
                 last = True
@@ -140,6 +141,8 @@ def IndexView(ListView):
             'last': last,
         }
         return data
+
+
 def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     # 阅读量+1
@@ -158,7 +161,9 @@ def detail(request, pk):
     context = {'post': post,
                'form': form,
                'comment_list': comment_list}
-    return render(request, 'blog/detail.html',context=context)
+    return render(request, 'blog/detail.html', context=context)
+
+
 # 记得在顶部导入DetailView
 class PostDetailView(DetailView):
     # 这些属性的含义和ListViewshi一样的
@@ -177,18 +182,20 @@ class PostDetailView(DetailView):
         self.object.increase_views()
         # 视图必须返回一个 HttpResponse 对象
         return response
+
     def get_object(self, queryset=None):
         # 覆写get_object方法的目的是因为需要对post的body值进行渲染
         post = super(PostDetailView, self).get_object(queryset=None)
         md = markdown.markdown(post.body,
-                                  extensions={
-                                      'markdown.extensions.extra',
-                                      'markdown.extensions.codehilite',
-                                      'markdown.extensions.toc',
-                                  })
+                               extensions={
+                                   'markdown.extensions.extra',
+                                   'markdown.extensions.codehilite',
+                                   'markdown.extensions.toc',
+                               })
         post.body = md.convert(post.body)
         post.doc = md.doc
         return post
+
     def get_context_data(self, **kwargs):
         # 覆写get_context_data的目的是因为除了将post传递给模板外（DetailView已经帮我们完成）
         # 还要把评论表单、post下的评论列表传递给模板
@@ -196,43 +203,51 @@ class PostDetailView(DetailView):
         form = CommentForm()
         comment_list = self.object.comment_set.all()
         context.update({
-            'form':form,
-            'Comment_list':comment_list
+            'form': form,
+            'Comment_list': comment_list
         })
         return context
+
+
 def archives(request, year, month):
     post_list = Post.objects.filter(created__year=year,
                                     created__month=month)
-    return render(request, 'blog/index.html', context={'post_list':post_list})
+    return render(request, 'blog/index.html', context={'post_list': post_list})
+
+
 class ArchivesView(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+
     def get_queryset(self):
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
         return super(ArchivesView, self).get_queryset().filter(created__year=year,
                                                                created__month=month)
+
+
 def category(request, pk):
     cate = get_object_or_404(Category, pk=pk)
     post_list = Post.objects.filter(category=cate)
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
+
 class CategoryView(ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+
     def get_queryset(self):
         cate = get_object_or_404(Category, pk=self.kwargs.get('pk'))
         return super(CategoryView, self).get_queryset().filter(category=cate)
+
+
 class TagView(ListView):
-    model = post
+    model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+
     def get_queryset(self):
         tag = get_object_or_404(Tag, pk=self.kwargs.get('pk'))
         return super(TagView, self).get_queryset().filter(tags=tag)
-
-
-
-

@@ -13,19 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
-
-from blog.feeds import AllPostsRssFeed
-from website.views import home, about, new_home
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', home, name='home'),
-    url(r'^home/', new_home, name='new_home'),
-    url(r'^about/', about, name='about'),
-    url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
-    url(r'', include('comments.urls')),
-    url(r'^search/', include('haystack.urls')),
-    url(r'^all/css/$',AllPostsRssFeed(), name='rss'),
 ]

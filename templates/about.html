@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CodeZ|About</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="icon" type="image/x-ico" href="/static/imgs/logo.ico">
+    <!-- Custom styles for this template -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/pace.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+</head>
+
+<body style="background: url('/static/imgs/bg_about.jpg') no-repeat;background-size: cover;">
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" id="trigger-overlay" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand codez-logo" href="{% url 'home' %}">
+                <b class="app-name">CodeZ</b>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class=""><a href="../">Home</a></li>
+                <li class=""><a href="../blog">Blog</a></li>
+                <li class="active"><a href="/">About</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="">
+    <div class="">
+        <p class="main-logo">
+            <img src="../static/imgs/logo.png" alt="#">
+        </p>
+    </div>
+</div>
+<!-- /.container -->
+<div class="container about-content">
+    <div class="col-md-3">
+        <h3 class="info-profile">Profile</h3>
+        <div>
+            <img src="/static/imgs/admin_head.jpg" alt="" class="img-circle info-head">
+            <h3 class="info-name">CodeZ</h3>
+            <div style="clear: both"></div>
+        </div>
+        <p class="info-introduce">A low code monkey</p>
+    </div>
+    <div class="col-md-9">
+        <h3 class="info-about">About</h3>
+        <div>
+            <p class="about-item">Github&nbsp;:&nbsp;<a href="https://github.com/CodeZsx">https://github.com/CodeZsx</a></p>
+            <p class="about-item">CSDN Blog&nbsp;:&nbsp;<a href="http://blog.csdn.net/qq_28484355">http://blog.csdn.net/qq_28484355</a></p>
+            <p class="about-item">Mail&nbsp;:&nbsp;codezzz@163.com</p>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy 2017 - <a href="#" title="网页模板" target="_blank">CodeZ</a>个站
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+        </ul>
+    </nav>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

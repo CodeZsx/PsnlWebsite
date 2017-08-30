@@ -13,19 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
-
-from blog.feeds import AllPostsRssFeed
-from website.views import home, about, new_home
+from . import views
+from django.conf.urls import url
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', home, name='home'),
-    url(r'^home/', new_home, name='new_home'),
-    url(r'^about/', about, name='about'),
-    url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
-    url(r'', include('comments.urls')),
-    url(r'^search/', include('haystack.urls')),
-    url(r'^all/css/$',AllPostsRssFeed(), name='rss'),
+    url(r'^$', views.IndexView.as_view(), name='blog_index'),
+    url(r'^post/(?P<pk>[0-9]+)/$', views.PostDetailView.as_view(), name='detail'),
+    url(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2}/$)', views.ArchivesView.as_view(), name='archives'),
+    url(r'^category/(?P<pk>[0-9]+)/$', views.CategoryView.as_view(), name='category'),
+    url(r'^tag/(?P<pk>[0-9]+)/$', views.TagView.as_view(), name='tag'),
 ]
