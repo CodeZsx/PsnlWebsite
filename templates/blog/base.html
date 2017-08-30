@@ -125,20 +125,20 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="widget widget-archives top-gap">
-                    <h3 class="widget-title">归档</h3>
-                    {% archives as date_list %}
-                    <ul>
-                        {% for date in date_list %}
-                            <li>
-                                <a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }}
-                                    年 {{ date.month }} 月</a>
-                            </li>
-                        {% empty %}
-                            暂无归档！
-                        {% endfor %}
-                    </ul>
-                </div>
+{#                <div class="widget widget-archives top-gap">#}
+{#                    <h3 class="widget-title">归档</h3>#}
+{#                    {% archives as date_list %}#}
+{#                    <ul>#}
+{#                        {% for date in date_list %}#}
+{#                            <li>#}
+{#                                <a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }}#}
+{#                                    年 {{ date.month }} 月</a>#}
+{#                            </li>#}
+{#                        {% empty %}#}
+{#                            暂无归档！#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
 
                 <div class="widget widget-category top-gap">
                     <h3 class="widget-title">分类</h3>
@@ -180,9 +180,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="copyright">&copy 2017 - 采集自<a href="http://zmrenwu.com/"
+                <p class="copyright">&copy 2017 - 参照 <a href="http://zmrenwu.com/"
                                                         target="_blank" title="追梦人物的博客">追梦人物的博客</a>
-                    - 由<a href="#" title="网页模板" target="_blank">CodeZ</a>修改
+                    - 由<a href="{% url 'home' %}" title="CodeZ" target="_blank">CodeZ</a>修改
                 </p>
             </div>
         </div>

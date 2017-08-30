@@ -4,12 +4,10 @@ from __future__ import unicode_literals
 import markdown
 from django.contrib.auth.models import User
 from django.db import models
-
-# Create your models here.
 from django.urls import reverse
 from django.utils.html import strip_tags
 
-
+# Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -25,7 +23,7 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField('标题', max_length=70)
+    title = models.CharField('标题', max_length=100)
     body = models.TextField('正文')
     created = models.DateTimeField('创建时间', auto_now_add=True)
     modified = models.DateTimeField('修改时间', auto_now=True)
@@ -64,6 +62,6 @@ class Post(models.Model):
             # 先将Markdown文本渲染成HTML文本
             # strip_tags去掉HTML文本的全部HTML标签
             # 从文本摘取前54个字符给excerpt
-            self.excerpt = strip_tags(md.covert(self.body))[:54]
+            self.excerpt = strip_tags(md.convert(self.body))[:54]
 
         super(Post, self).save(*args, **kwargs)

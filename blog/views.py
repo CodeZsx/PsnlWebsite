@@ -5,12 +5,12 @@ import markdown
 from django.shortcuts import render, get_object_or_404
 
 from django.views.generic import ListView, DetailView
+from markdown.extensions.toc import TocExtension, slugify
 
 from blog.models import Post, Category, Tag
-
+from comments.forms import CommentForm
 
 # Create your views here.
-from comments.forms import CommentForm
 
 
 def blog_index(request):
@@ -186,14 +186,13 @@ class PostDetailView(DetailView):
     def get_object(self, queryset=None):
         # 覆写get_object方法的目的是因为需要对post的body值进行渲染
         post = super(PostDetailView, self).get_object(queryset=None)
-        md = markdown.markdown(post.body,
-                               extensions={
-                                   'markdown.extensions.extra',
-                                   'markdown.extensions.codehilite',
-                                   'markdown.extensions.toc',
-                               })
+        md = markdown.Markdown(extensions=[
+                                'markdown.extensions.extra',
+                                'markdown.extensions.codehilite',
+                                TocExtension(slugify=slugify),
+                               ])
         post.body = md.convert(post.body)
-        post.doc = md.doc
+        post.toc = md.toc
         return post
 
     def get_context_data(self, **kwargs):

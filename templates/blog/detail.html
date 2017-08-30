@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block main %}
     <article class="post post-{{ post.pk }}">
@@ -43,7 +43,7 @@
                     {{ form.email }}
                     {{ form.email.errors }}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 hidden">
                     <label for="{{ form.url.id_for_label }}">URL：</label>
                     {{ form.url }}
                     {{ form.url.errors }}
@@ -76,7 +76,7 @@
     </section>
 {% endblock main %}
 {% block toc %}
-    <div class="widget widget-content">
+    <div class="widget widget-content top-gap">
         <h3 class="widget-title">文章目录</h3>
         {{ post.toc|safe }}
     </div>

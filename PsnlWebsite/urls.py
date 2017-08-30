@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^home/', new_home, name='new_home'),
     url(r'^about/', about, name='about'),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
-    url(r'', include('comments.urls')),
+    url(r'', include('comments.urls', namespace='comments', app_name='comments')),
     url(r'^search/', include('haystack.urls')),
     url(r'^all/css/$',AllPostsRssFeed(), name='rss'),
 ]
