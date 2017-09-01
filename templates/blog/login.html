@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block main %}
+    <div class="social-login">
+        <h2 class="top-gap text-center">
+        使用第三方账户登录
+        </h2>
+        <div class="top-gap social-login-panel">
+            <div>
+                <div class="text-center text-muted">
+                    <span>
+                        登录后可在本站进行评论回复
+                    </span>
+                </div>
+                <div class="text-center social-icons">
+                    <span class="github">
+                        <a href="/accounts/github/login/?process=login">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                    </span>
+                    <span class="weibo">
+                        <a href="/accounts/weibo/login/?process=login">
+                            <i class="fa fa-weibo" aria-hidden="true"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

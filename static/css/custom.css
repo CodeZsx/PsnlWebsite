@@ -221,21 +221,33 @@ img {
 .no-post{
     padding: 15px;
 }
-.post {
-    background: #fff;
-    padding: 30px 30px 0;
+.post, .social-login{
+    padding: 15px;
+    border-bottom: 1px solid #f2f2f2;
 }
 
 .entry-title {
-    font-size: 24px;
-    line-height: 1.6;
-    padding: 10px 0 0;
+    font-size: 20px;
+    line-height: 27px;
+    padding: 0;
+    margin: 0;
+}
+.detail-title{
+    font-size: 25px;
+    line-height: 30px;
+    padding: 10px 0;
+}
+.entry-title a:hover{
+    text-decoration: underline;
 }
 
 .entry-meta {
-    color: #DDDDDD;
     font-size: 13px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+.entry-meta a, .entry-meta time{
+    color: #777;
+    margin-right: 20px;
 }
 
 .entry-content {
@@ -244,13 +256,35 @@ img {
     font-weight: 300;
     color: #000;
 }
-
-.post-category::after,
-.post-date::after,
-.post-author::after,
-.comments-link::after {
-    content: ' ·';
-    color: #000;
+.post-tags ul{
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+.post-tags ul li{
+    margin-right: 7px;
+}
+.post-tags a{
+    background-color: #f2f2f2;
+    border: 1px solid #f1f1f1;
+    padding: 2px 7px;
+    font-size: 14px;
+}
+.post-item-excerpt{
+    font-size: 14px;
+    line-height: 20px;
+}
+.post-item-statistic a.item{
+    border: 1px solid #f1f1f1;
+    float: left;
+    padding: 0 7px;
+}
+.post-item-statistic a .statistic-views{
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /**
@@ -262,17 +296,15 @@ img {
     font-weight: 400;
     word-spacing: 1px;
     letter-spacing: 0.01em;
-    text-align: center;
-    margin-top: 20px;
+    margin-right: 10px;
 }
 
 .cl-effect-14 a {
-    padding: 0 20px;
-    height: 45px;
-    line-height: 45px;
+    padding: 0;
+    height: 22px;
+    line-height: 22px;
     position: relative;
     display: inline-block;
-    margin: 15px 25px;
     letter-spacing: 1px;
     font-weight: 400;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
@@ -281,7 +313,7 @@ img {
 .cl-effect-14 a::before,
 .cl-effect-14 a::after {
     position: absolute;
-    width: 45px;
+    width: 22px;
     height: 1px;
     background: #C3C3C3;
     content: '';
@@ -293,7 +325,7 @@ img {
 
 .cl-effect-14 a::before {
     top: 0;
-    left: 0;
+    left: -5px;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -303,7 +335,7 @@ img {
 }
 
 .cl-effect-14 a::after {
-    right: 0;
+    right: -5px;
     bottom: 0;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -335,7 +367,9 @@ img {
     -moz-transform: rotate(0deg) translateX(50%);
     transform: rotate(0deg) translateX(50%);
 }
-
+.more-link{
+    float: right;
+}
 /**
  * 5.0 - Widget
  */
@@ -348,6 +382,15 @@ img {
 .top-gap{
     margin-top: 15px !important;
 }
+.right-gap{
+    margin-right: 15px !important;
+}
+.bottom-gap{
+    margin-bottom: 15px !important;
+}
+.left-gap{
+    margin-left: 15px !important;
+}
 .widget-title {
     font-size: 16px;
     line-height: 24px;
@@ -358,7 +401,7 @@ img {
 
 .col-md-4 div ul {
     margin: 15px 0 0;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .col-md-4 div ul li {
@@ -616,24 +659,41 @@ img {
  */
 
 .contact-form input, .comment-form input {
-    border: 1px solid #aaa;
+    background-color: rgb(245, 245, 245);
     margin-bottom: 15px;
+    padding: 6px 42px 6px 12px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 13px;
+    line-height: 23px;
+    color: #676767;
     width: 100%;
-    padding: 15px 15px;
-    font-size: 16px;
-    line-height: 100%;
-    transition: 0.4s border-color linear;
+    float: none;
 }
 
 .contact-form textarea, .comment-form textarea {
-    border: 1px solid #aaa;
+    background-color: rgb(245, 245, 245);
     margin-bottom: 15px;
-    width: 100%;
-    padding: 15px 15px;
-    font-size: 16px;
-    line-height: 20px !important;
+    padding: 6px 42px 6px 12px;
     min-height: 183px;
     transition: 0.4s border-color linear;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 13px;
+    line-height: 23px;
+    color: #676767;
+    width: 100%;
+    float: none;
 }
 
 .contact-form input:focus, .comment-form input:focus,
@@ -749,7 +809,7 @@ img {
 
     .post {
         background: #fff;
-        padding: 0 15px 0;
+        padding: 15px;
     }
 
     .more-link {
@@ -779,14 +839,21 @@ img {
 .comment-form {
     margin-top: 15px;
 }
+.comment-form .row div label{
+    font-size: 13px;
+    font-weight: normal;
+    color: #676767;
+}
 
 .comment-form .comment-btn {
     background-color: #0086e5;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 5px 20px;
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 3px 15px;
     color: #fff;
     border: none;
+    float: right;
 }
 
 .comment-list-panel {
@@ -804,18 +871,17 @@ img {
 }
 
 .comment-item .nickname,
-.comment-item .submit-date {
+.comment-item .submit-date,
+.comment-item .comment-reply{
     color: #777;
     font-size: 14px;
-}
-
-.comment-item .nickname:after {
-    content: ' ·';
+    line-height: 24px;
 }
 
 .comment-item .text {
-    padding-top: 5px;
     font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
 }
 
 /**
@@ -838,4 +904,55 @@ img {
 
 .current a {
     color: red;
+}
+/*
+ btn-back-top
+*/
+.back-top{
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    padding: 0;
+    background-color: #0086e5;
+    color: #fff;
+}
+.comment-btn:hover, .back-top:hover{
+    background-color: #000;
+    color: #fff;
+}
+.back-top .fa{
+    font-size: 20px;
+    line-height: 29px;
+}
+/*login*/
+.social-login-panel{
+    border: 1px solid #f1f1f1;
+    padding: 30px 0;
+    font-size: 16px;
+}
+.social-icons{
+    margin-top: 7px;
+}
+.social-login-panel .social-icons span{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 26px;
+    border-radius: 50%;
+}
+.social-login-panel .social-icons .github{
+    border: 1px solid #2680d9;
+}
+.social-login-panel .social-icons .weibo{
+    border: 1px solid #ff763b;
+}
+.social-login-panel .social-icons .github a{
+    color: #2680d9;
+}
+.social-login-panel .social-icons .weibo a{
+    color: #ff763b;
 }

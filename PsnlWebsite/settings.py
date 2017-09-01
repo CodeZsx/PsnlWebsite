@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for PsnlWebsite project.
 
@@ -29,7 +30,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +40,29 @@ INSTALLED_APPS = [
     'haystack',
     'blog',
     'comments',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    # 第三方账号相关，下面选择了weibo和github
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.weibo',
 ]
+AUTHENTICATION_BACKENDS  = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+# 前面app里添加了django.contrib.sites，需要设置SITE_ID
+SITE_ID = 1
+ACCOUNT_AUTHENTICATTION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+#默认值是'optional'，当其等于'mandatory’时，在email未验证之前，本地注册的用户无法登陆。
+# 'optional' 和 'none' 则不要求必须验证邮箱，
+# 两者区别是'optional' 依然会发送验证邮件，而'none' 则不会
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/blog/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +92,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'PsnlWebsite.wsgi.application'
 

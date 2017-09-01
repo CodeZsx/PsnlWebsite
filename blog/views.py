@@ -166,7 +166,7 @@ def detail(request, pk):
 
 # 记得在顶部导入DetailView
 class PostDetailView(DetailView):
-    # 这些属性的含义和ListViewshi一样的
+    # 这些属性的含义和ListView是一样的
     model = Post
     template_name = 'blog/detail.html'
     context_object_name = 'post'
@@ -189,9 +189,11 @@ class PostDetailView(DetailView):
         md = markdown.Markdown(extensions=[
                                 'markdown.extensions.extra',
                                 'markdown.extensions.codehilite',
+                                'markdown.extensions.toc',
                                 TocExtension(slugify=slugify),
                                ])
         post.body = md.convert(post.body)
+        print md.toc
         post.toc = md.toc
         return post
 
@@ -203,7 +205,7 @@ class PostDetailView(DetailView):
         comment_list = self.object.comment_set.all()
         context.update({
             'form': form,
-            'Comment_list': comment_list
+            'comment_list': comment_list
         })
         return context
 
@@ -212,6 +214,11 @@ def archives(request, year, month):
     post_list = Post.objects.filter(created__year=year,
                                     created__month=month)
     return render(request, 'blog/index.html', context={'post_list': post_list})
+
+
+def test(request, pk):
+    print pk
+    return None
 
 
 class ArchivesView(ListView):

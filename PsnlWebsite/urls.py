@@ -17,15 +17,17 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from blog.feeds import AllPostsRssFeed
-from website.views import home, about, new_home
+from blog.views import test
+from website.views import home, about
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
-    url(r'^home/', new_home, name='new_home'),
     url(r'^about/', about, name='about'),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'', include('comments.urls', namespace='comments', app_name='comments')),
     url(r'^search/', include('haystack.urls')),
     url(r'^all/css/$',AllPostsRssFeed(), name='rss'),
+    url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/github/login/callback/(?P<pk>.+)', test, 'test'),
 ]
