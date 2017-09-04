@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import allauth
 import markdown
 from django.shortcuts import render, get_object_or_404
 

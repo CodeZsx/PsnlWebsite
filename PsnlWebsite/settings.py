@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'haystack',
     'blog',
     'comments',
+    'users',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -63,6 +64,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/blog/'
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,9 +136,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+#
+# TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 

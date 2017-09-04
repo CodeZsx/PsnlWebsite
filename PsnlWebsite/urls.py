@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'', include('comments.urls', namespace='comments', app_name='comments')),
     url(r'^search/', include('haystack.urls')),
-    url(r'^all/css/$',AllPostsRssFeed(), name='rss'),
+    url(r'^all/css/$', AllPostsRssFeed(), name='rss'),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^accounts/github/login/callback/(?P<pk>.+)', test, 'test'),
 ]

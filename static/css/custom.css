@@ -869,16 +869,26 @@ img {
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
-
-.comment-item .nickname,
-.comment-item .submit-date,
-.comment-item .comment-reply{
+.comment-item .comment-avatar{
+    width: 48px;
+    border-radius: 4px;
+}
+.comment-left{
+    width: 60px;
+    display: inline-block;
+}
+.comment-right{
+    display: inline-block;
+}
+.comment-right .nickname,
+.comment-right .submit-date,
+.comment-right .comment-reply{
     color: #777;
     font-size: 14px;
     line-height: 24px;
 }
 
-.comment-item .text {
+.comment-right .text {
     font-size: 16px;
     line-height: 24px;
     font-weight: normal;
