@@ -217,11 +217,6 @@ def archives(request, year, month):
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-def test(request, pk):
-    print pk
-    return None
-
-
 class ArchivesView(ListView):
     model = Post
     template_name = 'blog/index.html'
@@ -230,6 +225,9 @@ class ArchivesView(ListView):
     def get_queryset(self):
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
+        print '2',
+        print year,
+        print month
         return super(ArchivesView, self).get_queryset().filter(created__year=year,
                                                                created__month=month)
 

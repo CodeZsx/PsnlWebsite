@@ -42,6 +42,9 @@ body{
     background-size: contain;
     margin-right: 10px;
 }
+.navbar-nav li .navbar-head{
+    width: 24px;
+}
 .navbar-nav>.active>a{
     color: #0086e5!important;
     font-weight: 400;
@@ -54,7 +57,13 @@ body{
     border-bottom: 1px solid #000;
     transition: all 0.2s ease-in;
 }
-.navbar-nav>li>a{
+.navbar-nav li .btn-group{
+    color: rgba(51,51,51,1);
+    font-weight: 300;
+    font-size: 16px;
+    margin: 10px;
+}
+.navbar-nav li a{
     color: rgba(51,51,51,1);
     font-weight: 300;
     font-size: 16px;
@@ -63,9 +72,21 @@ body{
     border-bottom: 1px solid rgba(51,51,51,0);
     transition: all 0.2s ease;
 }
-.navbar-nav>li>a:hover{
+.navbar-nav li a:hover{
     border-bottom: 1px solid rgba(51,51,51,0.3);
     transition: all 0.2s ease;
+}
+.dropdown-menu{
+    padding: 8px 0;
+    margin: 0;
+}
+.dropdown-menu li a{
+    border: none;
+    padding: 3px 24px;
+    margin: 0;
+}
+.dropdown-menu li a:hover{
+    border: none;
 }
 .black-mask{
     background: url("/static/imgs/bg_top.jpg") no-repeat;

@@ -221,7 +221,7 @@ img {
 .no-post{
     padding: 15px;
 }
-.post, .social-login{
+.post, .social-login, .account_block{
     padding: 15px;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -658,8 +658,8 @@ img {
  * 10.0 - Contact Form
  */
 
-.contact-form input, .comment-form input {
-    background-color: rgb(245, 245, 245);
+.contact-form input, .comment-form input,.login input{
+    background-color: rgb(245, 245, 245) !important;
     margin-bottom: 15px;
     padding: 6px 42px 6px 12px;
     border-radius: 0px;
@@ -674,6 +674,9 @@ img {
     color: #676767;
     width: 100%;
     float: none;
+}
+.login #id_remember{
+    width: inherit;
 }
 
 .contact-form textarea, .comment-form textarea {
@@ -839,13 +842,13 @@ img {
 .comment-form {
     margin-top: 15px;
 }
-.comment-form .row div label{
+.comment-form .row div label,.login label{
     font-size: 13px;
     font-weight: normal;
     color: #676767;
 }
 
-.comment-form .comment-btn {
+.comment-btn {
     background-color: #0086e5;
     border-radius: 0px;
     font-size: 14px;
@@ -853,7 +856,6 @@ img {
     padding: 3px 15px;
     color: #fff;
     border: none;
-    float: right;
 }
 
 .comment-list-panel {
@@ -865,7 +867,7 @@ img {
 }
 
 .comment-item:not(:last-child) {
-    border-bottom: 1px #ccc solid;
+    border-bottom: 1px #eee solid;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
@@ -875,10 +877,10 @@ img {
 }
 .comment-left{
     width: 60px;
-    display: inline-block;
+    position: absolute;
 }
 .comment-right{
-    display: inline-block;
+    margin-left: 60px;
 }
 .comment-right .nickname,
 .comment-right .submit-date,
@@ -886,14 +888,19 @@ img {
     color: #777;
     font-size: 14px;
     line-height: 24px;
+    font-weight: normal;
 }
-
 .comment-right .text {
     font-size: 16px;
     line-height: 24px;
     font-weight: normal;
 }
-
+.master,.text-blue{
+    color: #0086e5;
+}
+.comment-item small{
+    float: right;
+}
 /**
  * 13.0 - Pagination
  */

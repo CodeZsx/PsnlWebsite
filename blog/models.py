@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import user
+
 import markdown
 from django.contrib.auth.models import User
 from django.db import models

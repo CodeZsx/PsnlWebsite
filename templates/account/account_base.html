@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+
+{% block main %}
+    <div class="account_block">
+
+        {% block body %}
+
+            {% if messages %}
+                <div>
+                    <h4>Messages:</h4>
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div class="hidden">
+                <h4>Menu:</h4>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+                        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+                        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% block content %}
+            {% endblock %}
+        {% endblock %}
+        {% block extra_body %}
+        {% endblock %}
+    </div>
+{% endblock main %}

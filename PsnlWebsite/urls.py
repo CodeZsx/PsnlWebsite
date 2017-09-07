@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from blog.feeds import AllPostsRssFeed
-from blog.views import test
 from website.views import home, about
 
 urlpatterns = [
@@ -29,5 +28,4 @@ urlpatterns = [
     url(r'^search/', include('haystack.urls')),
     url(r'^all/css/$', AllPostsRssFeed(), name='rss'),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^accounts/github/login/callback/(?P<pk>.+)', test, 'test'),
 ]

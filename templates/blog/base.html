@@ -43,16 +43,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand codez-logo" href="#">
+            <a class="navbar-brand codez-logo" href="{% url 'home' %}">
                 <b class="app-name">CodeZ</b>
             </a>
         </div>
 
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+
             <ul class="nav navbar-nav navbar-right">
                 <li ><a href="{% url 'home' %}">Home</a></li>
                 <li class="active"><a href="{% url 'blog:blog_index' %}">Blog</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
+                <li>
+                    {% if request.user.is_authenticated %}
+                        <div class="btn-group">
+                            <img src="{{ user.avatar }}" alt="" class="navbar-head img-circle">
+                            <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                            <ul class="dropdown-menu">
+                                <li><a href="">{{ user.username }}</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/accounts/logout/">登出</a></li>
+                            </ul>
+                        </div>
+                    {% else %}
+                    <a href="/accounts/login/" class=""><i class="fa fa-sign-in"></i>登入</a>
+                    {% endif %}
+
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -126,20 +143,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-{#                <div class="widget widget-archives top-gap">#}
-{#                    <h3 class="widget-title">归档</h3>#}
-{#                    {% archives as date_list %}#}
-{#                    <ul>#}
-{#                        {% for date in date_list %}#}
-{#                            <li>#}
-{#                                <a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }}#}
-{#                                    年 {{ date.month }} 月</a>#}
-{#                            </li>#}
-{#                        {% empty %}#}
-{#                            暂无归档！#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
 
                 <div class="widget widget-category top-gap">
                     <h3 class="widget-title">分类</h3>
@@ -154,6 +157,22 @@
                             </li>
                         {% empty %}
                             暂无分类！
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="widget widget-archives top-gap">
+                    <h3 class="widget-title">归档</h3>
+                    {% archives as date_list %}
+                    <ul>
+                        {% for date in date_list %}
+                            <li>
+                                <a href="{% url 'blog:archives' date.year date.month %}">
+                                    <i class="fa fa-angle-double-right"></i>
+                                    {{ date.year }} 年 {{ date.month }} 月</a>
+                            </li>
+                        {% empty %}
+                            暂无归档！
                         {% endfor %}
                     </ul>
                 </div>
@@ -186,7 +205,7 @@
             <div class="col-md-12">
                 <p class="copyright">&copy 2017 - 参照 <a href="http://zmrenwu.com/"
                                                         target="_blank" title="追梦人物的博客">追梦人物的博客</a>
-                    - 由<a href="{% url 'home' %}" title="CodeZ" target="_blank">CodeZ</a>修改
+                    - 由<a href="{% url 'home' %}" class="text-blue" title="CodeZ" target="_blank">CodeZ</a>修改
                 </p>
             </div>
         </div>
@@ -204,19 +223,18 @@
         </ul>
     </nav>
 </div>
-<a href="" class="back-top" id="js-back-top" style="display: none;">
+<a href="javascript:;" class="back-top" id="js-back-top" style="display: none;">
     <i class="fa fa-angle-up" aria-hidden="true"></i>
 </a>
 <script src="{% static 'js/script.js' %}"></script>
 <script>
-    $('#js-back-top').on('click', function (e) {
-        if($(window).scrollTop() > 0 && !('html, body').is(':animated')){
-            $('html, body').animate({scrollTop: 0}, 500);
-        }
+    $('#js-back-top').on('click', function () {
+        $('html, body').animate({scrollTop: 0}, 300);
+        return false;
 
     });
-    $(window).on('scroll',function (e) {
-        var $pos = $(window).height() / 3;
+    $(window).on('scroll',function () {
+        var $pos = $(window).height() / 4;
         if ($(window).scrollTop()>$pos) {
             $('#js-back-top').fadeIn();
         }else {
