@@ -1,31 +1,5 @@
 /**
- * Table of Contents
- *
- * 1.0 - Google Font
- * 2.0 - General Elements
- * 3.0 - Site Header
- *   3.1 - Logo
- *   3.2 - Main Navigation
- *     3.2.1 - Main Nav CSS 3 Hover Effect
- * 4.0 - Home/Blog
- *   4.1 - Read More Button CSS 3 style
- * 5.0 - Widget
- * 6.0 - Footer
- * 7.0 - Header Search Bar
- * 8.0 - Mobile Menu
- * 9.0 - Contact Page Social
- * 10.0 - Contact Form
- * 11.0 - Media Query
- * 12.0 - Comment
- * 13.0 - Pagination
- */
-
-/**
- * 1.0 - Google Font
- */
-
-/**
- * 2.0 - General Elements
+ * General Elements
  */
 
 * {
@@ -59,8 +33,11 @@ a:hover, a:focus {
 }
 
 body {
-    color: #444;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
+    color: #333;
+    line-height: 24px;
+    padding-top: 0;
+    min-height: 100vh;
 }
 
 p {
@@ -104,24 +81,83 @@ img {
 /**
  * 3.0 - Site Header
  */
-
-#site-header {
-    background-color: #FFF;
-    padding: 25px 20px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #e7e7e7;
+.navbar-default{
+    background-color: rgba(255,255,255,0);
+    border-color: transparent;
+    position: absolute;
+    display: block;
+    width: 100%;
+}
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: #555;
+}
+.navbar-toggle{
+    border: 1px solid #777 !important;
 }
 
-.copyrights {
-    text-indent: -9999px;
-    height: 0;
-    line-height: 0;
-    font-size: 0;
-    overflow: hidden;
+.navbar-brand b{
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(51,51,51,0.7);
 }
-
+.codez-logo:before{
+    background: url("/static/imgs/logo.png");
+    width: 36px;
+    height: 25px;
+    display: block;
+    content: "";
+    float: left;
+    background-size: contain;
+    margin-right: 10px;
+}
+.navbar-nav li .navbar-head{
+    width: 24px;
+}
+.navbar-nav .active a{
+    color: #0086e5!important;
+    font-weight: 400;
+    background-color: transparent!important;
+    border-bottom: 1px solid #0086e5;
+    transition: all 0.2s ease-in;
+}
+.navbar-nav .active a:hover{
+    color: #000;
+    border-bottom: 1px solid #000;
+    transition: all 0.2s ease-in;
+}
+.navbar-nav li .btn-group{
+    color: rgba(51,51,51,1);
+    font-weight: 300;
+    font-size: 16px;
+    margin: 10px;
+}
+.navbar-nav li a{
+    color: rgba(51,51,51,1);
+    font-weight: 300;
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+    border-bottom: 1px solid rgba(51,51,51,0);
+    transition: all 0.2s ease;
+}
+.navbar-nav li a:hover{
+    border-bottom: 1px solid rgba(51,51,51,0.3);
+    transition: all 0.2s ease;
+}
+.dropdown-menu{
+    padding: 8px 0;
+    margin: 0;
+}
+.dropdown-menu li a{
+    border: none;
+    padding: 3px 24px;
+    margin: 0;
+}
+.dropdown-menu li a:hover{
+    border: none;
+}
 /**
- * 3.1 - Logo
+ * Logo
  */
 
 .logo h1 a {
@@ -139,76 +175,188 @@ img {
     font-weight: 300;
 }
 
-/**
- * 3.2 - Main Navigation
- */
-
-.main-nav {
-    margin-top: 11px;
-    max-width: 95%;
-}
-
-.main-nav a {
-    color: #000000 !important;
-    padding: 0 0 5px 0 !important;
-    margin-right: 30px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 24px;
-}
-
-.main-nav a:active,
-.main-nav a:focus,
-.main-nav a:hover {
-    background-color: transparent !important;
-    border-bottom: 0;
-}
-
-/*.navbar-toggle {*/
-    /*margin: 0;*/
-    /*border: 0;*/
-    /*padding: 0;*/
-    /*margin-right: 25px;*/
-/*}*/
-
-.navbar-toggle span {
-    font-size: 2em;
-    color: #000;
-}
 
 /**
- * 3.2.1 - Main Nav CSS 3 Hover Effect
+ * index
  */
-
-.cl-effect-11 a {
-    padding: 10px 0;
-    color: #0972b4;
-    text-shadow: none;
+.black-mask{
+    background: url("/static/imgs/bg_top.jpg") no-repeat;
+    background-size: cover;
 }
-
-.cl-effect-11 a::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    padding: 0 0 5px 0 !important;
-    max-width: 0;
-    border-bottom: 1px solid #000;
-    color: #000;
-    content: attr(data-hover);
-    white-space: nowrap;
-    -webkit-transition: max-width 0.5s;
-    -moz-transition: max-width 0.5s;
-    transition: max-width 0.5s;
+.blog-top-block{
+    background: url("/static/imgs/bg_covered.jpg") no-repeat;
+    background-size: cover;
+    min-height: 30vh;
+    max-height: 100%;
 }
-
-.cl-effect-11 a:hover::before,
-.cl-effect-11 a:focus::before {
+.headerwrap{
+    background: rgba(255,255,255,0.4);
+    min-height: 60vh;
+    max-height: 100%;
     max-width: 100%;
 }
+.main-logo{
+    text-align: center;
+    padding-top: 120px;
+    text-align: center;
+}
+.main-logo img{
+    height: 100px;
+}
+.main-sentence{
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: 300;
+    padding-top: 130px;
+    text-align: center;
+    color: rgba(51,51,51,1);
+}
+.second-sentence{
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 300;
+    padding-top: 15px;
+    text-align: center;
+    color: rgba(51,51,51,1);
+}
+@media (min-width: 767px) {
+    .main-sentence{
+        font-size: 45px;
+        line-height: 50px;
+        font-weight: 300;
+        padding-top: 130px;
+        text-align: center;
+        color: rgba(51,51,51,1);
+    }
+    .second-sentence{
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: 300;
+        padding-top: 15px;
+        text-align: center;
+        color: rgba(51,51,51,1);
+    }
+}
+@media (max-width: 767px) {
+    .main-sentence{
+        font-size: 35px;
+        line-height: 40px;
+        font-weight: 300;
+        padding-top: 130px;
+        text-align: center;
+        color: rgba(51,51,51,1);
+    }
+    .second-sentence{
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 300;
+        padding-top: 15px;
+        text-align: center;
+        color: rgba(51,51,51,1);
+    }
+}
 
+.introduce-bg{
+    background: url("/static/imgs/bg_coding.jpg") no-repeat;
+    background-size: cover;
+    width: 1170px;
+    height: 500px;
+}
+.bg-white{
+    background-color: #fff;
+}
+.bg-faded{
+    background-color: #f2f2f2;
+}
+
+.jumbotron{
+    min-height: 450px;
+    margin-bottom: 0;
+}
+.block-dev{
+    overflow: hidden;
+}
+.block-dev .title{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.block-dev .title span{
+    display: inline-block;
+    padding: 0 35px;
+    vertical-align: baseline;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+}
+.block-dev .title span::before,.block-dev .title span::after{
+    border-top: 1px solid #e2e2e2;
+    content: '';
+    display: block;
+    position: relative;
+    width: 100px;
+}
+.block-dev .title span::before{
+    top: 12px;
+    right: 100%;
+    margin-right: 15px;
+}
+.block-dev .title span::after{
+    bottom: 12px;
+    left: 100%;
+    margin-left: 15px;
+}
+.block-dev .dev-center{
+    clear: both;
+}
+.block-dev .dev-center .col-md-4{
+    text-align: center;
+}
+.skill-logo{
+    height: 200px;
+    padding-top: 10px;
+    display: block;
+    transition: all 0.2s ease;
+}
+.skill-logo:hover{
+    height: 200px;
+    padding-top: 0;
+    transition: all 0.2s ease;
+}
+.apps-logo{
+    height: 100px;
+    padding-top: 10px;
+    display: block;
+    transition: all 0.2s ease;
+}
+.apps-logo:hover{
+    height: 100px;
+    padding-top: 0;
+    transition: all 0.2s ease;
+}
+.skill-logo img,.apps-logo img{
+    height: inherit;
+}
+.skill-name,.apps-name{
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    display: block;
+}
+.block-dev .info-more{
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    color: #777;
+    margin: 30px auto 0;
+}
+.block-footer{
+    background: url("/static/imgs/bg_bottom.jpg");
+    background-size: cover;
+}
 /**
- * 4.0 - Home/Blog
+ * 4.0 - Blog-home
  */
 
 .content-body {
@@ -285,6 +433,43 @@ img {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * about page
+ */
+.about-content{
+    background-color: rgba(255,255,255,0.9);
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    padding: 30px 20px 15px 20px;
+    min-height: 300px;
+}
+.little-title,.info-profile,.info-about{
+    font-weight: 300;
+    font-size: 18px;
+    color: #777;
+    padding: 10px 0 10px;
+    margin-top: 0;
+}
+.about-content .col-md-3 div{
+    display: block;
+    vertical-align: middle;
+}
+.info-head{
+    height: 60px;
+}
+.info-name{
+    color: #d9534f;
+    padding-top: 10px;
+    margin: 0;
+    font-weight: 300;
+}
+.info-introduce,.about-item{
+    padding-top: 20px;
+    font-size: 18px;
+    color: #777;
 }
 
 /**
