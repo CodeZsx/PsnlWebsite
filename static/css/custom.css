@@ -740,7 +740,7 @@ img {
 .overlay ul li {
     display: block;
     height: 20%;
-    height: calc(100% / 5);
+    height: calc(100% / 3);
     min-height: 54px;
 }
 
