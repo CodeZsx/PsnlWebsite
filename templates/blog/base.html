@@ -91,6 +91,7 @@
             <aside class="col-md-4">
                 {% block toc %}
                 {% endblock toc %}
+
                 <div class="widget widget-recent-posts top-gap">
                     <h3 class="widget-title">最新文章</h3>
                     {% get_recent_posts as recent_post_list %}
@@ -151,7 +152,18 @@
                         {% endfor %}
                     </ul>
                 </div>
-
+                <div class="widget widget-webmaster top-gap">
+                    <h3 class="widget-title">
+                        访客
+                        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                        document.write(unescape("%3Cspan id='cnzz_stat_icon_1264375896'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1264375896%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+                    </h3>
+                    <div>
+                        <script type="text/javascript"
+                                src="//rf.revolvermaps.com/0/0/1.js?i=5k4zlu6b82h&amp;s=240&amp;m=0&amp;v=true&amp;r=false&amp;b=ffffff&amp;n=false&amp;c=ff0000"
+                                async="async"></script>
+                    </div>
+                </div>
                 <div class="widget rss top-gap">
                     <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
 
