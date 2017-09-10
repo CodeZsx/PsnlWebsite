@@ -51,6 +51,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li ><a href="{% url 'home' %}">Home</a></li>
+                <li ><a href="{% url 'app' %}">App</a></li>
                 <li class="active"><a href="{% url 'blog:blog_index' %}">Blog</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li>
@@ -158,7 +159,7 @@
                         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
                         document.write(unescape("%3Cspan id='cnzz_stat_icon_1264375896'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1264375896%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
                     </h3>
-                    <div>
+                    <div class="tools-global">
                         <script type="text/javascript"
                                 src="//rf.revolvermaps.com/0/0/1.js?i=5k4zlu6b82h&amp;s=240&amp;m=0&amp;v=true&amp;r=false&amp;b=ffffff&amp;n=false&amp;c=ff0000"
                                 async="async"></script>
@@ -191,7 +192,8 @@
     <nav>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
+            <li><a href="{% url 'app' %}">App</a></li>
+            <li><a href="{% url 'blog:blog_index' %}" class="active">Blog</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
         </ul>
     </nav>

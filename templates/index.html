@@ -50,9 +50,10 @@
 
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home</a></li>
-                <li class=""><a href="/blog/">Blog</a></li>
-                <li class=""><a href="/about/">About</a></li>
+                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                <li ><a href="{% url 'app' %}">App</a></li>
+                <li class=""><a href="{% url 'app' %}">Blog</a></li>
+                <li class=""><a href="{% url 'about' %}">About</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -149,7 +150,8 @@
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
         <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}" class="active">Home</a></li>
+            <li><a href="{% url 'app' %}">App</a></li>
             <li><a href="{% url 'blog:blog_index' %}">Blog</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
         </ul>
