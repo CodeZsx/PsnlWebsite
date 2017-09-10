@@ -17,11 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from blog.feeds import AllPostsRssFeed
-from website.views import home, about
+from website.views import home, about, app
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
+    url(r'^app/', app, name='app'),
     url(r'^about/', about, name='about'),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'', include('comments.urls', namespace='comments', app_name='comments')),
