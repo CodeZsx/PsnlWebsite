@@ -33,7 +33,7 @@ a:hover, a:focus {
 }
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif!important;
     color: #333;
     line-height: 24px;
     padding-top: 0;
@@ -747,6 +747,14 @@ img {
 
 .overlay ul li a {
     font-weight: 300;
+    color: #777;
+    display: block;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+.overlay ul li .active {
+    font-weight: 300;
+    color: #333;
     display: block;
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
@@ -1158,4 +1166,74 @@ img {
 }
 .social-login-panel .social-icons .weibo a{
     color: #ff763b;
+}
+
+/**
+ * app page
+ */
+
+.top-navbar{
+    padding-top: 50px;
+}
+.carousel-control{
+    background-image: none!important;
+    color: #e22930;
+}
+carousel-control .glyphicon:hover{
+    color: #bc252e;
+}
+.app-content{
+    min-height: 90vh;
+    padding-top: 20vh;
+    overflow: hidden;
+}
+.app-intro, .app-pic{
+    height: 60vh;
+    text-align: center;
+}
+.app-pic img{
+    height: 60vh;
+}
+.app-intro{
+    letter-spacing: 2px;
+    padding-top: 80px;
+}
+.app-intro .app-icon{
+    width: 48px;
+    border-radius: 4px;
+}
+.app-intro .simplifyreader-download, .app-intro .seegirls-download{
+    display: inline-block;
+    margin-top: 80px;
+    padding: 10px 16px;
+    border-radius: 0;
+    letter-spacing: 3px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: #e22930;
+}
+.app-intro .simplifyreader-download:hover,.app-intro .seegirls-download:hover{
+    background-color: #bc252e;
+}
+.app-intro .weather-download{
+    display: inline-block;
+    margin-top: 80px;
+    padding: 10px 16px;
+    border-radius: 0;
+    letter-spacing: 3px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: #2c90c5;
+}
+.app-intro .weather-download:hover{
+    background-color: #1e89c2;
+}
+
+.simplifyreader-color, .seegirls-color{
+    color: #e22930;
+}
+.weather-color{
+    color: #2c90c5;
 }
