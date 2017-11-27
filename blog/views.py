@@ -20,23 +20,6 @@ def blog_index(request):
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-def download_file(request):
-    # do something...
-
-    def file_iterator(file_name, chunk_size=512):
-        with open(file_name) as f:
-            while True:
-                c = f.read(chunk_size)
-                if c:
-                    yield c
-                else:
-                    break
-
-    the_file_name = "../static/file/resume.pdf"
-    response = StreamingHttpResponse(file_iterator(the_file_name))
-
-    return response
-
 class IndexView(ListView):
     model = Post
     template_name = 'blog/index.html'
