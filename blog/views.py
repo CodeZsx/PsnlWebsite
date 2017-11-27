@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import allauth
 import markdown
+from django.http import StreamingHttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from django.views.generic import ListView, DetailView
@@ -18,6 +19,23 @@ def blog_index(request):
     post_list = Post.objects.all()
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
+
+def download_file(request):
+    # do something...
+
+    def file_iterator(file_name, chunk_size=512):
+        with open(file_name) as f:
+            while True:
+                c = f.read(chunk_size)
+                if c:
+                    yield c
+                else:
+                    break
+
+    the_file_name = "../static/file/resume.pdf"
+    response = StreamingHttpResponse(file_iterator(the_file_name))
+
+    return response
 
 class IndexView(ListView):
     model = Post
