@@ -27,7 +27,7 @@ Jinja2==2.9.6
 jsonschema==2.6.0
 jupyter-core==4.3.0
 keyboard==0.9.13
-lxml==3.8.0
+lxml==4.6.3
 macholib==1.5.1
 Markdown==2.6.9
 MarkupSafe==1.0
